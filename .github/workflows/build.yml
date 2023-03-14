@@ -17,7 +17,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Install CMake
-      run: sudo apt install cmake
+      uses: lukka/get-cmake@latest
+    - name: Print CMake version
+      command: cmake --version
     - name: Build musl static binary
       uses: gmiam/rust-musl-action@master
       with:

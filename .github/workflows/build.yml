@@ -16,10 +16,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: add x86_64-unknown-linux-musl target
-      run: rustup target add x86_64-unknown-linux-musl
-    - name: Build
-      run: cargo build --profile opt --target x86_64-unknown-linux-musl --verbose
+    - name: Build musl static binary
+      uses: gmiam/rust-musl-action@master
+      with:
+        args: cargo build --profile opt --target x86_64-unknown-linux-musl --verbose
     - name: Run tests
       run: cargo test --verbose
     - name: Upload a Build Artifact

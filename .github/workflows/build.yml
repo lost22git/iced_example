@@ -16,6 +16,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Install CMake
+      uses: lukka/get-cmake@latest
     - name: Build musl static binary
       uses: gmiam/rust-musl-action@master
       with:
@@ -25,4 +27,4 @@ jobs:
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v3.1.2
       with:
-        path: 'target/opt/iced_example'
+        path: 'target/x86_64-unknown-linux-musl/opt/iced_example'

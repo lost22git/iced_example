@@ -84,6 +84,11 @@ impl App {
                 key_code: KeyCode::Enter,
                 modifiers: Modifiers::ALT,
             } => window::fetch_mode(Message::ToggleFullScreen),
+            // Shift+Enter
+            keyboard::Event::KeyPressed {
+                key_code: KeyCode::Enter,
+                modifiers: Modifiers::SHIFT,
+            } => window::toggle_decorations(),
             // Ctrl+-
             keyboard::Event::KeyPressed {
                 key_code: KeyCode::Minus,
